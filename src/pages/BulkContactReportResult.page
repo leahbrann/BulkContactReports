@@ -1,0 +1,15 @@
+<apex:page controller="BulkContactReportController">
+    <apex:pageBlock title="Contact Reports Created" >
+        <apex:pageblocktable value="{!successContacts}" var="key">
+            <apex:column value="{!key.Name}" />
+            <apex:column headerValue="Contact Report">
+            <apex:outputLink value="/{!successContacts[key]}">Link</apex:outputLink>
+            </apex:column>  
+        </apex:pageblocktable>
+    </apex:pageBlock>
+    <apex:pageBlock title="Errors: Contact Reports Not Created" rendered="{!showCRErrors}" >
+        <apex:pageblocktable value="{!failContacts}" var="c">
+            <apex:column value="{!c.Name}" />
+        </apex:pageblocktable>
+    </apex:pageBlock>
+</apex:page>

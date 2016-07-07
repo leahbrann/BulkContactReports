@@ -1,0 +1,26 @@
+<apex:page controller="BulkContactReportController" sidebar="false">
+    <apex:form >
+        <apex:pageBlock title="Step 3: Create Contact Reports" id="PageBlock" mode="edit">
+            <apex:pageMessages />
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!createCRs}"/>
+                <apex:commandButton value="Cancel" action="{!cancelCRs}" immediate="true" html-formnovalidate="formnovalidate"/>                
+            </apex:pageBlockButtons>
+                <apex:pageBlockSection title="Contact Report Information" columns="1">
+                    <apex:inputField value="{!tempTask.Ownerid}"/>
+                    <apex:inputField value="{!tempTask.Campaign__c}"/>
+                    <apex:inputField value="{!tempTask.Subject}"/>
+                    <apex:inputField value="{!tempTask.Type}"/>
+                    <apex:inputField value="{!tempTask.Legacy_Discussion__c}"/>
+                    <apex:inputField value="{!tempTask.ActivityDate}"/>
+                    <apex:inputField value="{!tempTask.Move_to_Next_Stage__c}"/>
+                    <apex:inputField value="{!tempTask.Attendee_1__c}"/>
+                    <apex:inputField value="{!tempTask.Attendee_2__c}"/>
+                    <apex:inputField value="{!tempTask.Attendee_3__c}"/>
+                    <apex:inputField value="{!tempTask.Attendee_4__c}"/>
+                    <apex:inputField value="{!tempTask.Attendee_5__c}"/>
+                    <apex:inputField value="{!tempTask.Description}" style="width: 50%"/>              
+               </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

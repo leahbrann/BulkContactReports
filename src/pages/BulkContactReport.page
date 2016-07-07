@@ -1,0 +1,22 @@
+<apex:page controller="BulkContactReportController">
+    <apex:form >
+        <apex:pagemessages />
+        <apex:pageBlock title="Step 1: Upload CSV file of CWIDs">
+            <apex:inputFile value="{!csvFileBody}"  filename="{!csvAsString}"/>
+            <apex:commandButton value="Find Contacts" action="{!importCSVFile}"/>
+        </apex:pageBlock>
+        <apex:pageBlock title="Step 2: Review Matched Contacts" >
+            <apex:commandButton value="Clear Contacts" action="{!clearContacts}"/>
+            <apex:commandButton value="Create Contact Report" action="{!createContactReport}"/>
+            <apex:pageblocktable value="{!contactList}" var="c">
+                <apex:column value="{!c.CWID__c}" />
+                <apex:column value="{!c.name}" />
+            </apex:pageblocktable>
+        </apex:pageBlock>
+    </apex:form>
+    <apex:pageBlock title="Errors: Bad or Unmatched CWIDs" rendered="{!showBadCWIDs}" >
+        <apex:pageblocktable value="{!badCWIDs}" var="c">
+            <apex:column value="{!c}" />
+        </apex:pageblocktable>
+    </apex:pageBlock>
+</apex:page>
